@@ -1,0 +1,41 @@
+.footer {
+  background: #111827;
+  color: #ccc;
+  padding-top: 40px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer h3 {
+  color: white;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  color: #3b82f6;
+}
+
+.copyright {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #1f2937;
+  margin-top: 30px;
+}

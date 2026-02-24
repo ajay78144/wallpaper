@@ -1,0 +1,15 @@
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">WallMagin</div>
+
+    <button class="menu-btn" (click)="isOpen = !isOpen">
+      ☰
+    </button>
+
+    <nav [class.open]="isOpen">
+      <a routerLink="/wallpapers" routerLinkActive="active">Home</a>
+      <a routerLink="/wallpapers/profile" routerLinkActive="active">Profile</a>
+      <a routerLink="/auth/login">Login</a>
+    </nav>
+  </div>
+</header>

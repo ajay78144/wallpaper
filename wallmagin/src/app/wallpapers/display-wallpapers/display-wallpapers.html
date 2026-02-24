@@ -1,0 +1,13 @@
+<section class="wallpapers">
+  <h2>Latest Wallpapers</h2>
+
+  <div class="grid">
+    <div class="card" *ngFor="let wallpaper of wallpapers">
+      <img [src]="wallpaper.image" alt="wallpaper">
+      <div class="card-body">
+        <h4>{{ wallpaper.title }}</h4>
+        <button>Download</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -5,114 +6,163 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-.auth-wrapper {
+/* ===== MAIN CONTAINER ===== */
+.auth-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* LEFT SIDE */
-.auth-left {
+/* ===== LEFT SIDE (Background Image) ===== */
+.left-section {
   flex: 1;
-  background: linear-gradient(135deg, #111, #1c1c1c);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px;
-}
-
-.auth-left h1 {
-  font-size: 42px;
-  color: #4EA685;
-  margin-bottom: 20px;
-}
-
-.auth-left p {
-  font-size: 18px;
-  color: #ccc;
-}
-
-/* RIGHT SIDE */
-.auth-right {
-  flex: 1;
+  background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7')
+              no-repeat center center/cover;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5f5f5;
 }
 
-.auth-card {
-  width: 100%;
-  max-width: 400px;
-  background: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+.left-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.overlay {
+  position: relative;
+  color: #fff;
   text-align: center;
+  padding: 20px;
 }
 
-.auth-card h2 {
+.overlay h1 {
+  font-size: 42px;
+  color: #4EA685;
   margin-bottom: 10px;
 }
 
-.sub-text {
-  color: #777;
-  margin-bottom: 30px;
+.overlay p {
+  font-size: 18px;
+  color: #ddd;
 }
 
-.input-box {
+/* ===== RIGHT SIDE ===== */
+.right-section {
+  flex: 1;
+  background: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* ===== LOGIN CARD ===== */
+.form-card {
+  width: 100%;
+  max-width: 400px;
+  background: #1e1e1e;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+/* ===== INPUT FIELD ===== */
+.form-group {
   margin-bottom: 20px;
 }
 
-.input-box input {
+.form-group input {
   width: 100%;
   padding: 12px 15px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 14px;
   outline: none;
   transition: 0.3s;
 }
 
-.input-box input:focus {
+.form-group input:focus {
   border-color: #4EA685;
-  box-shadow: 0 0 8px rgba(78,166,133,0.3);
+  box-shadow: 0 0 8px rgba(78, 166, 133, 0.5);
 }
 
-.auth-btn {
+/* ===== ERROR TEXT ===== */
+.error {
+  font-size: 12px;
+  color: #ff4d4d;
+  margin-top: 5px;
+  display: block;
+}
+
+/* ===== BUTTON ===== */
+button {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
   border: none;
-  background: #4EA685;
+  background: linear-gradient(135deg, #4EA685, #3d8f73);
   color: #fff;
   font-size: 15px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.auth-btn:hover {
-  background: #3c8f73;
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(78, 166, 133, 0.4);
 }
 
-.bottom-text {
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+/* ===== REGISTER LINK ===== */
+.switch-text {
+  text-align: center;
   margin-top: 20px;
   font-size: 14px;
+  color: #ccc;
 }
 
-.bottom-text a {
+.switch-text a {
   color: #4EA685;
   text-decoration: none;
   font-weight: 500;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .auth-wrapper {
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .auth-container {
     flex-direction: column;
   }
 
-  .auth-left {
-    text-align: center;
-    padding: 40px;
+  .left-section {
+    height: 250px;
+  }
+
+  .overlay h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-card {
+    padding: 25px;
   }
 }

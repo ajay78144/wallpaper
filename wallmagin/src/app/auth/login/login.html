@@ -1,31 +1,61 @@
-<div class="auth-wrapper">
+<div class="auth-container">
 
-  <div class="auth-left">
-    <h1>WallMagin</h1>
-    <p>Discover & Download Stunning Wallpapers</p>
+  <div class="left-section">
+    <div class="overlay">
+      <h1>WallMagin</h1>
+      <p>Discover Stunning Wallpapers</p>
+    </div>
   </div>
 
-  <div class="auth-right">
-    <div class="auth-card">
-      <h2>Welcome Back</h2>
-      <p class="sub-text">Login to continue</p>
+  <div class="right-section">
+    <div class="form-card">
+      <h2>Login</h2>
 
-      <form>
-        <div class="input-box">
-          <input type="email" placeholder="Email Address">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <!-- Email -->
+        <div class="form-group">
+          <input type="email"
+                 placeholder="Email"
+                 formControlName="email">
+
+          <small class="error"
+            *ngIf="submitted && f['email'].errors?.['required']">
+            Email is required
+          </small>
+
+          <small class="error"
+            *ngIf="submitted && f['email'].errors?.['email']">
+            Enter valid email
+          </small>
         </div>
 
-        <div class="input-box">
-          <input type="password" placeholder="Password">
+        <!-- Password -->
+        <div class="form-group">
+          <input type="password"
+                 placeholder="Password"
+                 formControlName="password">
+
+          <small class="error"
+            *ngIf="submitted && f['password'].errors?.['required']">
+            Password is required
+          </small>
+
+          <small class="error"
+            *ngIf="submitted && f['password'].errors?.['minlength']">
+            Minimum 6 characters required
+          </small>
         </div>
 
-        <button class="auth-btn">Login</button>
+        <button type="submit">Login</button>
+
       </form>
 
-      <p class="bottom-text">
+      <p class="switch-text">
         Don’t have an account?
         <a routerLink="/auth/register">Register</a>
-      </p>
+      </p>  
+
     </div>
   </div>
 

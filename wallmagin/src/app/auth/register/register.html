@@ -1,39 +1,90 @@
-<div class="auth-wrapper">
+<div class="auth-container">
 
-  <div class="auth-left">
-    <h1>Join WallMagin</h1>
-    <p>Create account & upload your wallpapers</p>
+  <div class="left-section">
+    <div class="overlay">
+      # Join WallMagin
+      <p>Upload & Share Beautiful Wallpapers</p>
+    </div>
   </div>
 
-  <div class="auth-right">
-    <div class="auth-card">
-      <h2>Create Account</h2>
-      <p class="sub-text">Start your journey</p>
+  <div class="right-section">
+    <div class="form-card">
+      ## Create Account
 
-      <form>
-        <div class="input-box">
-          <input type="text" placeholder="Full Name">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <!-- Name -->
+        <div class="form-group">
+          <input type="text"
+                 placeholder="Full Name"
+                 formControlName="name">
+
+          <small class="error"
+            *ngIf="submitted && f['name'].errors">
+            Name is required
+          </small>
         </div>
 
-        <div class="input-box">
-          <input type="text" placeholder="Mobile Number">
+        <!-- Mobile -->
+        <div class="form-group">
+          <input type="text"
+                 placeholder="Mobile Number"
+                 formControlName="mobile">
+
+          <small class="error"
+            *ngIf="submitted && f['mobile'].errors?.['required']">
+            Mobile number is required
+          </small>
+
+          <small class="error"
+            *ngIf="submitted && f['mobile'].errors?.['pattern']">
+            Enter valid 10 digit number
+          </small>
         </div>
 
-        <div class="input-box">
-          <input type="email" placeholder="Email Address">
+        <!-- Email -->
+        <div class="form-group">
+          <input type="email"
+                 placeholder="Email"
+                 formControlName="email">
+
+          <small class="error"
+            *ngIf="submitted && f['email'].errors?.['required']">
+            Email is required
+          </small>
+
+          <small class="error"
+            *ngIf="submitted && f['email'].errors?.['email']">
+            Enter valid email
+          </small>
         </div>
 
-        <div class="input-box">
-          <input type="password" placeholder="Password">
+        <!-- Password -->
+        <div class="form-group">
+          <input type="password"
+                 placeholder="Password"
+                 formControlName="password">
+
+          <small class="error"
+            *ngIf="submitted && f['password'].errors?.['required']">
+            Password is required
+          </small>
+
+          <small class="error"
+            *ngIf="submitted && f['password'].errors?.['minlength']">
+            Minimum 6 characters required
+          </small>
         </div>
 
-        <button class="auth-btn">Register</button>
+        <button type="submit">Register</button>
+
       </form>
 
-      <p class="bottom-text">
+      <p class="switch-text">
         Already have an account?
         <a routerLink="/auth">Login</a>
       </p>
+
     </div>
   </div>
 

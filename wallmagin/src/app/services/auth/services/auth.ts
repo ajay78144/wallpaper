@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // ✅ REGISTER
+  // ✅ REGISTE
   register(data: {
     name: string;
     mobile: string;
